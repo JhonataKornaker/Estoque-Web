@@ -1,0 +1,6 @@
+.busca input {
+    width: calc(100% - 20px); /* 100% da largura do contêiner, com 10px de padding em cada lado */
+    padding: 10px; /* Espaçamento nos lados do input */
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total do input */
+    border-radius: 5px;
+  }
