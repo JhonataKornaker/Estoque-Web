@@ -1,8 +1,7 @@
 body {
   background: transparent; /* Make it white if you need */
   padding: 0 24px;
-  margin: 0;
-  height: 100vh;
+  margin: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +12,7 @@ body {
 .App {
   color: #333;
   width: 800px;
-  height: 600px;
+  min-height: 600px;
   text-align: center;
   background-color: rgba(235, 226, 226, 10.0); /* Cor branca com 50% de opacidade */
   padding: 10px;
