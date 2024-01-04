@@ -1,7 +1,7 @@
-import { isValidInputTimeValue } from '@testing-library/user-event/dist/utils'
+
 import './ListaEstoque.css'
 
-const ListaEstoque = ({ lista }) => {
+const ListaEstoque = ({ lista, openModal }) => {
     return (
         <section className='container-lista'>
             <div className='imagem'>
@@ -18,7 +18,7 @@ const ListaEstoque = ({ lista }) => {
             <span>{lista.local}</span>
             </div>
             <div className='botao'>
-                <button>Editar</button>
+                <button onClick={openModal}>Editar</button>
                 <button>Excluir</button>
             </div>
         </section>
