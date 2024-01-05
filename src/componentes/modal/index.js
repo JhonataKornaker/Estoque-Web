@@ -1,7 +1,7 @@
 import './Modal.css'
 import {FaTimes} from 'react-icons/fa'
 
-const Modal = ({isOpen, onClose}) => {
+const Modal = ({isOpen, onClose, listaModal}) => {
 
     if (!isOpen) return null; //Esta é uma estrutura condicional que verifica se isOpen é falso. Se for, retornara falso ou seja não sera exibido o modal.
 
@@ -12,13 +12,13 @@ const Modal = ({isOpen, onClose}) => {
             </div>
             <div className='lista-editar'>
                 Nome:
-                <input type='text'></input>
+                <input type='text' value={listaModal.nome} onChange={(e) => console.log(e.target.value)}/>
                 Quantidade:
-                <input type='number'></input>
+                <input type='number' value={listaModal.quantidade} onChange={(e) => console.log(e.target.value)}/>
                 Categoria:
-                <input type='text'></input>
+                <input type='text' value={listaModal.categoria} onChange={(e) => console.log(e.target.value)}/>
                 Local:
-                <input type='text'></input>
+                <input type='text' value={listaModal.local} onChange={(e) => console.log(e.target.value)}/>
             </div>
             <div>
                 <button>Salvar</button>

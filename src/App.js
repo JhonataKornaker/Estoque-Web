@@ -25,14 +25,18 @@ function App() {
   ])
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [itemModal, setItemModal] = useState(null);
 
-  const openModal = () => {
+  const openModal = (id) => {
+    const valorModal = item.find((item) => item.id === id);
+    setItemModal(valorModal);
     setIsModalOpen(true);
-  };
+  };  
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
 
   return (
     <div className="App">
@@ -44,7 +48,7 @@ function App() {
         ))
       }
 
-    <Modal isOpen={isModalOpen} onClose={closeModal}/>
+    <Modal isOpen={isModalOpen} onClose={closeModal} listaModal={itemModal}/>
       
     </div>
   );

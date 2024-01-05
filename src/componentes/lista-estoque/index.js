@@ -18,7 +18,7 @@ const ListaEstoque = ({ lista, openModal }) => {
             <span>{lista.local}</span>
             </div>
             <div className='botao'>
-                <button onClick={openModal}>Editar</button>
+                <button onClick={() => openModal(lista.id)}>Editar</button>
                 <button>Excluir</button>
             </div>
         </section>
