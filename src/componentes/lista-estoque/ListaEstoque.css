@@ -1,18 +1,18 @@
 .container-lista {
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
     padding: 5px;
     background-color: #fff;
     color: black;
+    border-radius: 5px;
+    position: relative; /* Adicione esta linha */
+    z-index: 0;
 }
 .imagem {
     flex: 1;
     width: 20%;
-    border: 1px solid;
 }
 .lista {
-    border: 1px solid;
     flex: 2;
     width: 100%;
     display: flex;
@@ -21,13 +21,24 @@
     align-items: start;
 }
 .botao {
-    border: 1px solid;
-    padding: 5px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: end;
+    width: auto;
+    gap: 10px;
+    margin-bottom: -30px;
+    margin-right: 10px;
+    position: relative; /* Adicione esta linha */
+    z-index: 1;
+}
+.botao button {
+    border-radius: 5px;
 }
 span {
     border: 2px solid;
     width: calc(100% - 20px); /* 100% da largura do contêiner, com 10px de padding em cada lado */
-    padding: 13px; /* Espaçamento nos lados do input */
     box-sizing: border-box; /* Garante que o padding não aumente a largura total do input */
     border-radius: 5px;
+    display: inline-block;
+    text-align: center;
 }

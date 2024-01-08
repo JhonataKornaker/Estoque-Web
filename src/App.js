@@ -5,6 +5,7 @@ import ListaEstoque from './componentes/lista-estoque';
 import Pesquisar from './componentes/pesquisar';
 import Modal from './componentes/modal';
 
+
 function App() {
 
   const [item, setItem] = useState([
@@ -31,11 +32,21 @@ function App() {
     const valorModal = item.find((item) => item.id === id);
     setItemModal(valorModal);
     setIsModalOpen(true);
-  };  
+  };
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const removerItem = (id) => {
+    const itemAtual = [...item];
+    const novaListaItem = itemAtual.filter((itemFiltro) => itemFiltro.id !== id ? itemAtual : null)
+    setItem(novaListaItem);
+  }
+
+  const adicionarItem = () => {
+
+  }
 
 
   return (
@@ -44,12 +55,16 @@ function App() {
       <Pesquisar />
       {
         item.map((lista) => (
-          <ListaEstoque key={lista.id} lista={lista} openModal={openModal}/>
+          <ListaEstoque key={lista.id} lista={lista} openModal={openModal} excluirItem={removerItem} />
         ))
       }
 
-    <Modal isOpen={isModalOpen} onClose={closeModal} listaModal={itemModal}/>
-      
+      <button className='btnCadastrar'>
+        Cadastrar
+      </button>
+
+      <Modal isOpen={isModalOpen} onClose={closeModal} listaModal={itemModal} />
+
     </div>
   );
 }

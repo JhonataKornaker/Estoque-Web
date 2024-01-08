@@ -18,3 +18,13 @@ body {
   padding: 10px;
   border-radius: 15px;
 }
+.btnCadastrar {
+  margin-top: 40px;
+  background-color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+}
+button {
+  cursor: pointer;
+}
