@@ -26,7 +26,7 @@ function App() {
   ])
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [itemModal, setItemModal] = useState(null);
+  const [itemModal, setItemModal] = useState({});
 
   const openModal = (id) => {
     const valorModal = item.find((item) => item.id === id);
@@ -44,9 +44,7 @@ function App() {
     setItem(novaListaItem);
   }
 
-  const adicionarItem = () => {
-
-  }
+ // const adicionarItem = () => {}
 
 
   return (
@@ -63,7 +61,7 @@ function App() {
         Cadastrar
       </button>
 
-      <Modal isOpen={isModalOpen} onClose={closeModal} listaModal={itemModal} />
+      <Modal isOpen={isModalOpen} onClose={closeModal} listaModal={itemModal} setItem={setItem} />
 
     </div>
   );
