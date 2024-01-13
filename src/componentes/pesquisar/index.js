@@ -1,9 +1,13 @@
 import './Pesquisar.css'
 
-const Pesquisar = () => {
+const Pesquisar = ({pesquisa, setPesquisa}) => {
     return (
         <div className='busca'>
-            <input type='text' placeholder='Digite o texto para busca' />
+            <input 
+            type='text' 
+            value={pesquisa}
+            onChange={(e) => setPesquisa(e.target.value)}
+            placeholder='Digite o nome para busca' />
         </div>
     )
 }

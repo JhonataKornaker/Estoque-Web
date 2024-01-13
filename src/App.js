@@ -4,6 +4,7 @@ import './App.css';
 import ListaEstoque from './componentes/lista-estoque';
 import Pesquisar from './componentes/pesquisar';
 import Modal from './componentes/modal';
+import { Link } from 'react-router-dom';
 
 
 function App() {
@@ -44,22 +45,32 @@ function App() {
     setItem(novaListaItem);
   }
 
+  const [pesquisa, setPesquisa] = useState('');
+
  // const adicionarItem = () => {}
 
 
   return (
     <div className="App">
       <h2>Lista de Estoque</h2>
-      <Pesquisar />
+      <Pesquisar pesquisa={pesquisa} setPesquisa={setPesquisa}/>
+      
       {
-        item.map((lista) => (
-          <ListaEstoque key={lista.id} lista={lista} openModal={openModal} excluirItem={removerItem} />
+        item
+        .filter((lista) => lista.nome.toLowerCase()
+        .includes(pesquisa.toLowerCase()))
+        .map((lista) => (
+          <ListaEstoque 
+          key={lista.id} 
+          lista={lista} 
+          openModal={openModal} 
+          excluirItem={removerItem} />
         ))
       }
 
-      <button className='btnCadastrar'>
+      <Link to={'cadastrar'}>
         Cadastrar
-      </button>
+      </Link>
 
       <Modal isOpen={isModalOpen} onClose={closeModal} listaModal={itemModal} setItem={setItem} />
 
