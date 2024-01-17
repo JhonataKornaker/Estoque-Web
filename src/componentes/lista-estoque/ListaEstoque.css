@@ -1,3 +1,6 @@
+.principal {
+    margin-bottom: 20px;
+}
 .container-lista {
     display: flex;
     flex-direction: row;

@@ -17,9 +17,11 @@ body {
   background-color: rgba(235, 226, 226, 10.0); /* Cor branca com 50% de opacidade */
   padding: 10px;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
 }
 .btnCadastrar {
-  margin-top: 40px;
+  margin-top: auto;
   background-color: white;
   font-size: 20px;
   border: none;
@@ -27,4 +29,7 @@ body {
 }
 button {
   cursor: pointer;
+}
+.btnLink {
+  text-decoration: none;
 }

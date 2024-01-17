@@ -3,7 +3,8 @@ import './ListaEstoque.css'
 
 const ListaEstoque = ({ lista, openModal, excluirItem }) => {
     return (
-        <>
+    
+            <section className='principal'>
             <section className='botao'>
                 <button onClick={() => openModal(lista.id)}>Editar</button>
                 <button onClick={() => excluirItem(lista.id)}>Excluir</button>
@@ -23,7 +24,8 @@ const ListaEstoque = ({ lista, openModal, excluirItem }) => {
                     <span>{lista.local}</span>
                 </div>
             </section>
-        </>
+            </section>
+        
     )
 }
 

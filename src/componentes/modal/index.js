@@ -51,6 +51,8 @@ o useEffect será executado sempre que uma dessas variáveis mudar entre renderi
 
 
     if (!isOpen) return null; //Esta é uma estrutura condicional que verifica se isOpen é falso. Se for, retornara falso ou seja não sera exibido o modal.
+      //Verifica se isOpen é falso, se for retorna nulo, caso isOpen for verdadeiro retorna o modal.
+
 
     return (
         <div className='modalStyle'>

@@ -5,6 +5,7 @@ import ListaEstoque from './componentes/lista-estoque';
 import Pesquisar from './componentes/pesquisar';
 import Modal from './componentes/modal';
 import { Link } from 'react-router-dom';
+import ModalImagem from './componentes/modal-imagem';
 
 
 function App() {
@@ -24,10 +25,19 @@ function App() {
       quantidade: 20,
       local: 'Almoxarifado',
     },
+    {
+      id: 3,
+      nome: 'Notebook',
+      categoria: 'Informatica',
+      quantidade: 4,
+      local: 'Almoxarifado',
+    },
   ])
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [itemModal, setItemModal] = useState({});
+  const [pesquisa, setPesquisa] = useState('');
+  
 
   const openModal = (id) => {
     const valorModal = item.find((item) => item.id === id);
@@ -45,7 +55,6 @@ function App() {
     setItem(novaListaItem);
   }
 
-  const [pesquisa, setPesquisa] = useState('');
 
  // const adicionarItem = () => {}
 
@@ -68,12 +77,13 @@ function App() {
         ))
       }
 
-      <Link to={'cadastrar'}>
-        Cadastrar
-      </Link>
-
       <Modal isOpen={isModalOpen} onClose={closeModal} listaModal={itemModal} setItem={setItem} />
 
+      <button className='btnCadastrar'>
+      <Link className='btnLink' to={'cadastrar'}>
+        Cadastrar
+      </Link>
+      </button>
     </div>
   );
 }
