@@ -35,20 +35,10 @@ const Modal = ({isOpen, onClose, listaModal, setItem}) => {
         onClose();
       };
       
-/* useEffect está observando a variável listaModal como dependência. 
-Isso significa que, toda vez que listaModal mudar (ou seja, quando o botão de edição for
-clicado e uma nova listaModal for passada como propriedade), a função dentro do useEffect será executada.
-         
-O primeiro argumento é uma função que contém o código a ser executado quando o componente é montado ou 
-quando as dependências especificadas sofrem alterações.
-O segundo argumento é um array de dependências. Se o array estiver vazio ([]), o useEffect será 
-executado apenas uma vez, após a montagem inicial do componente. Se o array contiver variáveis, 
-o useEffect será executado sempre que uma dessas variáveis mudar entre renderizações.*/
     useEffect(() => {
         // Atualizar o estado local quando a propriedade listaModal for alterada
-        setDadosModal(listaModal);
+        setDadosModal(listaModal);  
       }, [listaModal]);
-
 
     if (!isOpen) return null; //Esta é uma estrutura condicional que verifica se isOpen é falso. Se for, retornara falso ou seja não sera exibido o modal.
       //Verifica se isOpen é falso, se for retorna nulo, caso isOpen for verdadeiro retorna o modal.

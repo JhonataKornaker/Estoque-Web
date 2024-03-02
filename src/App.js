@@ -1,46 +1,22 @@
 
-import { useState } from 'react';
+import {useState } from 'react';
 import './App.css';
 import ListaEstoque from './componentes/lista-estoque';
 import Pesquisar from './componentes/pesquisar';
 import Modal from './componentes/modal';
 import { Link } from 'react-router-dom';
-import ModalImagem from './componentes/modal-imagem';
+import {useCadastroContext } from './context/Cadastro';
 
 
 function App() {
 
-  const [item, setItem] = useState([
-    {
-      id: 1,
-      nome: 'Alicate',
-      categoria: 'Ferramenta',
-      quantidade: 10,
-      local: 'Almoxarifado',
-    },
-    {
-      id: 2,
-      nome: 'Radio',
-      categoria: 'Comunicação',
-      quantidade: 20,
-      local: 'Almoxarifado',
-    },
-    {
-      id: 3,
-      nome: 'Notebook',
-      categoria: 'Informatica',
-      quantidade: 4,
-      local: 'Almoxarifado',
-    },
-  ])
-
+  const { cadastro, setCadastro } = useCadastroContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [itemModal, setItemModal] = useState({});
   const [pesquisa, setPesquisa] = useState('');
-  
 
   const openModal = (id) => {
-    const valorModal = item.find((item) => item.id === id);
+    const valorModal = cadastro.find((item) => item.id === id);
     setItemModal(valorModal);
     setIsModalOpen(true);
   };
@@ -50,39 +26,44 @@ function App() {
   };
 
   const removerItem = (id) => {
-    const itemAtual = [...item];
-    const novaListaItem = itemAtual.filter((itemFiltro) => itemFiltro.id !== id ? itemAtual : null)
-    setItem(novaListaItem);
+    console.log("Antes da remoção:", cadastro);
+
+    setCadastro((item) => {
+      const novaListaItem = item.filter((itemFiltro) => itemFiltro.id !== id);
+      console.log("Depois da remoção:", novaListaItem);
+      return novaListaItem;
+    })
   }
 
-
- // const adicionarItem = () => {}
-
+  console.log('Varivel Global: ', cadastro);
 
   return (
     <div className="App">
       <h2>Lista de Estoque</h2>
-      <Pesquisar pesquisa={pesquisa} setPesquisa={setPesquisa}/>
-      
+      <Pesquisar pesquisa={pesquisa} setPesquisa={setPesquisa} />
       {
-        item
-        .filter((lista) => lista.nome.toLowerCase()
-        .includes(pesquisa.toLowerCase()))
-        .map((lista) => (
-          <ListaEstoque 
-          key={lista.id} 
-          lista={lista} 
-          openModal={openModal} 
-          excluirItem={removerItem} />
-        ))
+        cadastro && cadastro.length > 0 ? (
+          cadastro
+            .filter((lista) => lista.nome.toLowerCase()
+              .includes(pesquisa.toLowerCase()))
+            .map((lista) => (
+              <ListaEstoque
+                key={lista.id}
+                lista={lista}
+                openModal={openModal}
+                excluirItem={removerItem} />
+            ))
+        ) : (
+          <p>Lista Vazia!!</p>
+        )
       }
-
-      <Modal isOpen={isModalOpen} onClose={closeModal} listaModal={itemModal} setItem={setItem} />
+    
+      <Modal isOpen={isModalOpen} onClose={closeModal} listaModal={itemModal} setItem={setCadastro} />
 
       <button className='btnCadastrar'>
-      <Link className='btnLink' to={'cadastrar'}>
-        Cadastrar
-      </Link>
+        <Link className='btnLink' to={'cadastrar'}>
+          Cadastrar
+        </Link>
       </button>
     </div>
   );

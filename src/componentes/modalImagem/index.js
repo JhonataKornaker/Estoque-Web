@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import './Modal-Imagem.css'
+import './ModalImagem.css'
 
-export default ModalImagem = (isOpen, onClose) => {
+const ModalImagem = (isOpen, onClose) => {
 
     const [img, setImg] = useState('');
 
@@ -29,3 +29,5 @@ export default ModalImagem = (isOpen, onClose) => {
         </section>
     )
 };
+
+export default ModalImagem;
