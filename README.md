@@ -1,4 +1,4 @@
-<h1 align="center"> Controle Estoque </h1>
+#Controle de Estoque Web
 
 * [Introdução](#Introdução) <br><br>
    Projeto academico destinado a aprendizado.
